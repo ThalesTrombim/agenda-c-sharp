@@ -145,8 +145,6 @@ namespace ConsoleAgenda
 
     static void Main(string[] args)
 		{
-      AgendaBackup.fileName = "data.rtf";
-
 			string[] name = new string[200];
 			string[] email = new string[200];
 
@@ -156,6 +154,9 @@ namespace ConsoleAgenda
 
       int tl = 0;
 			int op = 0;
+
+      AgendaBackup.fileName = "data.rtf";
+      AgendaBackup.RestoreData(ref name, ref email, ref tl);
 
       while (op != 6)
 			{
@@ -205,6 +206,8 @@ namespace ConsoleAgenda
             break;
         }
       }
+
+      AgendaBackup.SaveData(ref name, ref email, ref tl);
     }
 	}
 }
